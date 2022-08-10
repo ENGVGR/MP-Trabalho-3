@@ -60,11 +60,11 @@ def teste_datas_dos_arquivos():
   arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
   "arquivo4.txt"]
   #Datas no formato ano,mês,dia,hora,minuto,segundo
-  datas = [[2022,10,8,11,30,10], [2022,10,8,11,30,15], [2022,10,8,11,30,21],
-   [2022,10,8,11,30,26]]
+  datas = [[2022,8,10,11,30,10], [2022,8,10,11,30,15], [2022,8,10,11,30,21],
+   [2022,8,10,11,30,26]]
 
   assert datas_dos_arquivos(pasta_teste, arquivos_teste) == datas
 
-  assert datas_dos_arquivos(pasta_teste, arquivos_teste[2,3]) == datas[2,3]
+  assert datas_dos_arquivos(pasta_teste, arquivos_teste[2:3]) == datas[2:3]
 
-  assert datas_dos_arquivos(pasta_teste, arquivos_teste[0,1]) == datas[0,1]
+  assert datas_dos_arquivos(pasta_teste, arquivos_teste[0:1]) == datas[0:1]
