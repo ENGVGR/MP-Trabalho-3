@@ -10,13 +10,17 @@ def arquivos_presentes(pasta, arquivos):
   """! Função que verifica se existe uma lista de arquivos na pasta.
   @param pasta  Caminho para a pasta que será verificada.
   @param arquivos  Lista de arquivos.
-  @return  Retorna True caso todos os arquivos estejam na pasta
-   e False caso contrário
+  @return  Retorna uma lista que informa se o arquivo existe (True) ou
+  não (False).
   """
+  presenca = []
+
   for arquivo in arquivos:
     if not os.path.isfile(f"{pasta}/{arquivo}"):
-      return False
-  return True
+      presenca.append(False)
+    else:
+      presenca.append(True)
+  return presenca
 
 def datas_dos_arquivos(pasta, arquivos):
   """! Função que retorna as datas das últimas modificações dos arquivos.
@@ -33,8 +37,10 @@ def datas_dos_arquivos(pasta, arquivos):
 
 def compara_datas(datas1, datas2):
   """! Função que compara as datas de duas pastas.
-  @param datas1  Datas da primeira pasta, no formato [ano,mes,dia,hora,minuto,segundo].
-  @param datas2  Datas da segunda pasta, no formato [ano,mes,dia,hora,minuto,segundo].
+  @param datas1  Datas da primeira pasta, no formato
+   [ano,mes,dia,hora,minuto,segundo].
+  @param datas2  Datas da segunda pasta, no formato
+   [ano,mes,dia,hora,minuto,segundo].
   @return  Retorna uma lista com o resultado das comparações de datas.
   """
   comparacoes = []

@@ -15,6 +15,10 @@ def teste_arquivos_presentes():
 
   pasta_teste = "./exemplos/pendrive"
 
+  #Exclui a pasta teste (caso exista)
+  if os.path.exists(pasta_teste):
+    shutil.rmtree(pasta_teste)
+
   #Cria os arquivos teste
   os.mkdir(pasta_teste)
 
@@ -32,23 +36,26 @@ def teste_arquivos_presentes():
 
   arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
   "arquivo4.txt"]
-  assert arquivos_presentes(pasta_teste, arquivos_teste) is True
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True, True,
+   True]
 
   arquivos_teste = ["arquivo1.txt", "arquivo2.txt"]
-  assert arquivos_presentes(pasta_teste, arquivos_teste) is True
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True]
 
   arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
   "arquivo5.txt"]
-  assert arquivos_presentes(pasta_teste, arquivos_teste) is False
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True, True,
+   False]
 
   arquivos_teste = ["arquivo1.txt"]
-  assert arquivos_presentes(pasta_teste, arquivos_teste) is True
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True]
 
   arquivos_teste = ["arquivo6.txt"]
-  assert arquivos_presentes(pasta_teste, arquivos_teste) is False
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [False]
 
   #Exclui a pasta teste
-  shutil.rmtree(pasta_teste)
+  if os.path.exists(pasta_teste):
+    shutil.rmtree(pasta_teste)
 
 def teste_datas_dos_arquivos():
   """! Testa se a função datas_dos_arquivos retorna a data do arquivo.
