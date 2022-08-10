@@ -71,8 +71,12 @@ def teste_datas_dos_arquivos():
   assert datas_dos_arquivos(pasta_teste, arquivos_teste[0:1]) == datas[0:1]
 
 def teste_compara_datas():
-  datas_pasta1 = [[2022,8,10,11,30,10], [2022,8,10,11,30,15],
-  [2022,8,10,11,30,21], [2022,8,10,10,30,26]]
+  pasta_teste = "./exemplos/teste_datas"
+
+  arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
+  "arquivo4.txt"]
+
+  datas_pasta1 = datas_dos_arquivos(pasta_teste, arquivos_teste)
 
   datas_pasta2 = [[2022,8,10,11,30,10], [2023,8,10,11,30,15],
   [2022,8,10,11,30,20], [2022,8,10,11,40,26]]
