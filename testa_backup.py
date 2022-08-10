@@ -105,9 +105,24 @@ def teste_transfere_arquivos():
   #Exclui a pasta teste (caso exista)
   if os.path.exists(pasta_destino_teste):
     shutil.rmtree(pasta_destino_teste)
+  if os.path.exists(pasta_origem_teste):
+    shutil.rmtree(pasta_origem_teste)
 
   #Cria a pasta de teste
   os.mkdir(pasta_destino_teste)
+  os.mkdir(pasta_origem_teste)
+
+  with open(f"{pasta_origem_teste}/arquivo1.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  with open(f"{pasta_origem_teste}/arquivo2.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  with open(f"{pasta_origem_teste}/arquivo3.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  with open(f"{pasta_origem_teste}/arquivo4.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
 
   arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
   "arquivo4.txt"]
@@ -116,13 +131,24 @@ def teste_transfere_arquivos():
   assert arquivos_presentes(pasta_destino_teste, arquivos_teste) == [True, True, True,
    True]
 
-  transfere_arquivos(arquivos_teste[0:1], pasta_origem_teste, pasta_destino_teste)
-  assert arquivos_presentes(pasta_destino_teste, arquivos_teste) == [True, True]
+  #Recria a pasta destino para realizar outros testes
+  if os.path.exists(pasta_destino_teste):
+    shutil.rmtree(pasta_destino_teste)
+  os.mkdir(pasta_destino_teste)
 
-  transfere_arquivos(arquivos_teste[2:3], pasta_origem_teste, pasta_destino_teste)
-  assert arquivos_presentes(pasta_destino_teste, arquivos_teste) == [True, True]
+  transfere_arquivos(arquivos_teste[0:2], pasta_origem_teste, pasta_destino_teste)
+  assert arquivos_presentes(pasta_destino_teste, arquivos_teste[0:2]) == [True, True]
+
+  #Recria a pasta destino para realizar outros testes
+  if os.path.exists(pasta_destino_teste):
+    shutil.rmtree(pasta_destino_teste)
+  os.mkdir(pasta_destino_teste)
+
+  transfere_arquivos(arquivos_teste[2:4], pasta_origem_teste, pasta_destino_teste)
+  assert arquivos_presentes(pasta_destino_teste, arquivos_teste[2:4]) == [True, True]
 
   #Exclui a pasta teste (caso exista)
   if os.path.exists(pasta_destino_teste):
     shutil.rmtree(pasta_destino_teste)
-
+  if os.path.exists(pasta_origem_teste):
+    shutil.rmtree(pasta_origem_teste)

@@ -5,6 +5,7 @@ um pendrive e de um hd.
 
 import os
 import time
+import shutil
 
 def arquivos_presentes(pasta, arquivos):
   """! Função que verifica se existe uma lista de arquivos na pasta.
@@ -98,4 +99,6 @@ def compara_datas(datas1, datas2):
       comparacoes.append("As datas são iguais")
   return comparacoes
 
-
+def transfere_arquivos(arquivos, origem, destino):
+  for arquivo in arquivos:
+    shutil.copyfile(f"{origem}/{arquivo}", f"{destino}/{arquivo}")
