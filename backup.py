@@ -5,7 +5,7 @@ um pendrive e de um hd.
 
 import os.path
 
-def arquivos_presente(pasta, arquivos):
+def arquivos_presentes(pasta, arquivos):
   """! Função que verifica se existe uma lista de arquivos na pasta.
   @param pasta  Caminho para a pasta que será verificada.
   @param arquivos  Lista de arquivos.
@@ -13,7 +13,6 @@ def arquivos_presente(pasta, arquivos):
    e False caso contrário
   """
   for arquivo in arquivos:
-
     if not os.path.isfile(f"{pasta}/{arquivo}"):
       return False
   return True
