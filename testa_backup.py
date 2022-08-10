@@ -7,6 +7,7 @@ import shutil
 from backup import arquivos_presentes
 from backup import datas_dos_arquivos
 from backup import compara_datas
+from backup import transfere_arquivos
 
 def teste_arquivos_presentes():
   """! Testa se existe uma lista de arquivos x's na pasta y.
@@ -95,3 +96,32 @@ def teste_compara_datas():
 
   assert compara_datas(datas_pasta1, datas_pasta2) == [saida3, saida2,
   saida1, saida2]
+
+def teste_transfere_arquivos():
+
+  pasta_teste = "./exemplos/pendrive"
+
+  #Exclui a pasta teste (caso exista)
+  if os.path.exists(pasta_teste):
+    shutil.rmtree(pasta_teste)
+
+  #Cria a pasta de teste
+  os.mkdir(pasta_teste)
+
+  arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
+  "arquivo4.txt"]
+
+  transfere_arquivos(arquivos_teste, pasta_teste)
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True, True,
+   True]
+
+  transfere_arquivos(arquivos_teste[0:1], pasta_teste)
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True]
+
+  transfere_arquivos(arquivos_teste[2:3], pasta_teste)
+  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True]
+
+  #Exclui a pasta teste (caso exista)
+  if os.path.exists(pasta_teste):
+    shutil.rmtree(pasta_teste)
+
