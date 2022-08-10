@@ -97,3 +97,5 @@ def compara_datas(datas1, datas2):
     else:
       comparacoes.append("As datas são iguais")
   return comparacoes
+
+

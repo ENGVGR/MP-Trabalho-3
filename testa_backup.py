@@ -99,29 +99,30 @@ def teste_compara_datas():
 
 def teste_transfere_arquivos():
 
-  pasta_teste = "./exemplos/pendrive"
+  pasta_destino_teste = "./exemplos/pendrive"
+  pasta_origem_teste = "./exemplos/hd"
 
   #Exclui a pasta teste (caso exista)
-  if os.path.exists(pasta_teste):
-    shutil.rmtree(pasta_teste)
+  if os.path.exists(pasta_destino_teste):
+    shutil.rmtree(pasta_destino_teste)
 
   #Cria a pasta de teste
-  os.mkdir(pasta_teste)
+  os.mkdir(pasta_destino_teste)
 
   arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
   "arquivo4.txt"]
 
-  transfere_arquivos(arquivos_teste, pasta_teste)
-  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True, True,
+  transfere_arquivos(arquivos_teste, pasta_origem_teste, pasta_destino_teste)
+  assert arquivos_presentes(pasta_destino_teste, arquivos_teste) == [True, True, True,
    True]
 
-  transfere_arquivos(arquivos_teste[0:1], pasta_teste)
-  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True]
+  transfere_arquivos(arquivos_teste[0:1], pasta_origem_teste, pasta_destino_teste)
+  assert arquivos_presentes(pasta_destino_teste, arquivos_teste) == [True, True]
 
-  transfere_arquivos(arquivos_teste[2:3], pasta_teste)
-  assert arquivos_presentes(pasta_teste, arquivos_teste) == [True, True]
+  transfere_arquivos(arquivos_teste[2:3], pasta_origem_teste, pasta_destino_teste)
+  assert arquivos_presentes(pasta_destino_teste, arquivos_teste) == [True, True]
 
   #Exclui a pasta teste (caso exista)
-  if os.path.exists(pasta_teste):
-    shutil.rmtree(pasta_teste)
+  if os.path.exists(pasta_destino_teste):
+    shutil.rmtree(pasta_destino_teste)
 
