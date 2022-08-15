@@ -132,6 +132,9 @@ def executar(backup, hd, pendrive, arquivos):
       if not arquivo_presente_hd and not arquivo_presente_pendrive:
         print("Erro: Os arquivos não existem no Hd e no pendrive")
         return "Erro: Os arquivos não existem no Hd e no pendrive"
+      if arquivo_presente_pendrive and not arquivo_presente_hd:
+        print("Erro: Arquivos não existem no hd")
+        return "Erro: Arquivos não existem no hd"
   else:
     arquivos_presentes_hd = arquivos_presentes(hd, arquivos)
     arquivos_presentes_pendrive = arquivos_presentes(pendrive, arquivos)
