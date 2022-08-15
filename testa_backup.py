@@ -183,7 +183,7 @@ def teste_executar():
     arq_criado.close()
 
   #Teste 1 - Não possui o parâmetro Backup
-  assert executar(hd_teste, pendrive_teste, arquivos_teste) == "Impossível - Não contem o parâmetro Backup"
+  assert executar(None, hd_teste, pendrive_teste, arquivos_teste) == "Impossível - Não contem o parâmetro Backup"
 
   #Teste 2 - Arquivos estão apenas no hd e é backup
   executar( True, hd_teste, pendrive_teste, arquivos_teste)

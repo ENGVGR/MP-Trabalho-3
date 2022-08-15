@@ -102,3 +102,20 @@ def compara_datas(datas1, datas2):
 def transfere_arquivos(arquivos, origem, destino):
   for arquivo in arquivos:
     shutil.copyfile(f"{origem}/{arquivo}", f"{destino}/{arquivo}")
+
+def executar(backup, hd, pendrive, arquivos):
+  if backup == None:
+    print("Impossível - Não contem o parâmetro Backup")
+    return "Impossível - Não contem o parâmetro Backup"
+
+  if backup:
+    arquivos_presentes_hd = arquivos_presentes(hd, arquivos)
+    arquivos_presentes_pendrive = arquivos_presentes(pendrive, arquivos)
+
+    for i in range(len(arquivos)):
+      arquivo = arquivos[i]
+      arquivo_presente_hd = arquivos_presentes_hd[i]
+      arquivo_presente_pendrive = arquivos_presentes_pendrive[i]
+
+      if arquivo_presente_hd and not arquivo_presente_pendrive:
+        transfere_arquivos([arquivo], hd, pendrive)
