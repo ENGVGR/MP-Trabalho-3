@@ -448,6 +448,20 @@ def teste_executar():
   executar( True, hd_teste, pendrive_teste, arquivos_teste)
   assert arquivos_presentes(hd_teste, arquivos_teste) == [False]
 
+  #Teste 12 - Arquivos não existem no hd e no pendrive
+
+  #Recria as pastas pendrive e hd para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  if os.path.exists(hd_teste):
+    shutil.rmtree(hd_teste)
+  os.mkdir(pendrive_teste)
+  os.mkdir(hd_teste)
+
+  arquivos_teste = ["arquivo1.txt"]
+
+  assert executar( False, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Arquivo não existe no hd e pendrive"
+
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
     shutil.rmtree(pendrive_teste)
