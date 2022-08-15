@@ -386,6 +386,36 @@ def teste_executar():
   assert compara_datas(data_hd_depois, data_pendrive_depois)[0] == "As datas são iguais"
   assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True]
 
+  #Teste 9 - Arquivos estão no hd e pendrive e a data do pendrive é a mais recente
+
+  #Recria as pastas pendrive e hd para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  if os.path.exists(hd_teste):
+    shutil.rmtree(hd_teste)
+  os.mkdir(pendrive_teste)
+  os.mkdir(hd_teste)
+
+  with open(f"{hd_teste}/arquivo1.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  time.sleep(1.1)
+  with open(f"{pendrive_teste}/arquivo1.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  arquivos_teste = ["arquivo1.txt"]
+  data_hd_antes = datas_dos_arquivos(hd_teste, arquivos_teste)
+  data_pendrive_antes = datas_dos_arquivos(pendrive_teste, arquivos_teste)
+  assert compara_datas(data_hd_antes, data_pendrive_antes)[0] == "Segundo é mais recente"
+
+  time.sleep(1.1)
+  executar( False, hd_teste, pendrive_teste, arquivos_teste)
+  data_hd_depois = datas_dos_arquivos(hd_teste, arquivos_teste)
+  data_pendrive_depois = datas_dos_arquivos(pendrive_teste, arquivos_teste)
+  assert compara_datas(data_hd_depois, data_pendrive_antes)[0] == "As datas são iguais"
+  assert compara_datas(data_pendrive_antes, data_pendrive_depois)[0] == "As datas são iguais"
+  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True]
+
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
     shutil.rmtree(pendrive_teste)
