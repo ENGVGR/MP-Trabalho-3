@@ -119,3 +119,10 @@ def executar(backup, hd, pendrive, arquivos):
 
       if arquivo_presente_hd and not arquivo_presente_pendrive:
         transfere_arquivos([arquivo], hd, pendrive)
+
+      if arquivo_presente_hd and arquivo_presente_pendrive:
+        data_arquivo_hd = datas_dos_arquivos(hd, [arquivo])
+        data_arquivo_pendrive = datas_dos_arquivos(pendrive, [arquivo])
+
+        if compara_datas(data_arquivo_hd, data_arquivo_pendrive)[0] == "Primeiro é mais recente":
+          transfere_arquivos([arquivo], hd, pendrive)

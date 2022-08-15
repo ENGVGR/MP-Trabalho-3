@@ -4,6 +4,7 @@ Funções de teste das funções contidas no arquivo backup.py
 
 import os
 import shutil
+import time
 from backup import arquivos_presentes
 from backup import datas_dos_arquivos
 from backup import compara_datas
@@ -208,15 +209,23 @@ def teste_executar():
 
   with open(f"{pendrive_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
     arq_criado.close()
+
+  time.sleep(1.1)
   with open(f"{hd_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
     arq_criado.close()
 
   arquivos_teste.append("arquivo5.txt")
-  datas_hd = datas_dos_arquivos(hd_teste, arquivos_teste)
+  data_hd = datas_dos_arquivos(hd_teste, ["arquivo5.txt"])
+  data_pendrive = datas_dos_arquivos(pendrive_teste, ["arquivo5.txt"])
+  assert compara_datas(data_hd, data_pendrive)[0] == "Primeiro é mais recente"
+
+  time.sleep(1.1)
   executar( True, hd_teste, pendrive_teste, arquivos_teste)
+  data_hd = datas_dos_arquivos(hd_teste, ["arquivo5.txt"])
+  data_pendrive = datas_dos_arquivos(pendrive_teste, ["arquivo5.txt"])
+  assert compara_datas(data_hd, data_pendrive)[0] == "Segundo é mais recente"
 
   assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True, True]
-  assert datas_dos_arquivos(pendrive_teste, arquivos_teste)[4] == datas_hd[4]
 
 
   #Recria a pasta pendrive para novos testes
@@ -224,21 +233,29 @@ def teste_executar():
     shutil.rmtree(pendrive_teste)
   os.mkdir(pendrive_teste)
 
-  with open(f"{pendrive_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
-    arq_criado.close()
   with open(f"{pendrive_teste}/arquivo6.txt", "x", encoding="utf-8") as arq_criado:
     arq_criado.close()
-  with open(f"{hd_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
+  with open(f"{pendrive_teste}/arquivo7.txt", "x", encoding="utf-8") as arq_criado:
     arq_criado.close()
+
+  time.sleep(1.1)
   with open(f"{hd_teste}/arquivo6.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{hd_teste}/arquivo7.txt", "x", encoding="utf-8") as arq_criado:
     arq_criado.close()
 
   arquivos_teste.append("arquivo6.txt")
-  datas_hd = datas_dos_arquivos(hd_teste, arquivos_teste)
-  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+  arquivos_teste.append("arquivo7.txt")
+  datas_hd = datas_dos_arquivos(hd_teste, ["arquivo6.txt", "arquivo7.txt"])
+  datas_pendrive = datas_dos_arquivos(pendrive_teste, ["arquivo6.txt", "arquivo7.txt"])
+  assert compara_datas(datas_hd, datas_pendrive) == ["Primeiro é mais recente", "Primeiro é mais recente"]
 
-  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True, True, True]
-  assert datas_dos_arquivos(pendrive_teste, arquivos_teste)[4:6] == datas_hd[4:6]
+  time.sleep(1.1)
+  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+  datas_hd = datas_dos_arquivos(hd_teste, ["arquivo6.txt", "arquivo7.txt"])
+  datas_pendrive = datas_dos_arquivos(pendrive_teste, ["arquivo6.txt", "arquivo7.txt"])
+  assert compara_datas(datas_hd, datas_pendrive) == ["Segundo é mais recente", "Segundo é mais recente"]
+  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True, True, True, True]
 
 
   #Exclui as pastas testes (caso exista)
