@@ -155,3 +155,7 @@ def executar(backup, hd, pendrive, arquivos):
 
         if compara_datas(data_arquivo_hd, data_arquivo_pendrive)[0] == "Segundo é mais recente":
           transfere_arquivos([arquivo], pendrive, hd)
+
+      if not arquivo_presente_hd and not arquivo_presente_pendrive:
+        print("Erro: Arquivo não existe no hd e pendrive")
+        return "Erro: Arquivo não existe no hd e pendrive"
