@@ -311,8 +311,27 @@ def teste_executar():
   data_pendrive_antes = datas_dos_arquivos(pendrive_teste, ["arquivo1.txt"])
   assert compara_datas(data_hd, data_pendrive_antes)[0] == "Segundo é mais recente"
 
-  time.sleep(1.1)
   assert executar( True, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Arquivos do pendrive já são os mais recentes"
+
+  #Teste 6 - Arquivos estão apenas no hd e é para transferir do pendrive para hd
+
+  #Recria as pastas pendrive e hd para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  if os.path.exists(hd_teste):
+    shutil.rmtree(hd_teste)
+  os.mkdir(pendrive_teste)
+  os.mkdir(hd_teste)
+
+  with open(f"{hd_teste}/arquivo1.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{hd_teste}/arquivo2.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{hd_teste}/arquivo3.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt"]
+  assert executar(False, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Não foram encontrados os arquivos no pendrive"
 
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
