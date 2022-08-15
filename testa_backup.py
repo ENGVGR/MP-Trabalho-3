@@ -355,7 +355,7 @@ def teste_executar():
   data_pendrive_antes = datas_dos_arquivos(pendrive_teste, ["arquivo1.txt"])
   assert compara_datas(data_hd, data_pendrive_antes)[0] == "Primeiro é mais recente"
 
-  assert executar( True, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Arquivos do hd já são os mais recentes"
+  assert executar( False, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Arquivos do hd já são os mais recentes"
 
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
