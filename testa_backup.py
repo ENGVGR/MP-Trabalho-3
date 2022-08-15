@@ -200,6 +200,47 @@ def teste_executar():
   executar( True, hd_teste, pendrive_teste, arquivos_teste)
   assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True]
 
+  #Teste 3 - Arquivos estão no hd e pendrive, mas a data do hd é mais recente
+  #Recria a pasta pendrive para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  os.mkdir(pendrive_teste)
+
+  with open(f"{pendrive_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{hd_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  arquivos_teste.append("arquivo5.txt")
+  datas_hd = datas_dos_arquivos(hd_teste, arquivos_teste)
+  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+
+  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True, True]
+  assert datas_dos_arquivos(pendrive_teste, arquivos_teste)[4] == datas_hd[4]
+
+
+  #Recria a pasta pendrive para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  os.mkdir(pendrive_teste)
+
+  with open(f"{pendrive_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{pendrive_teste}/arquivo6.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{hd_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+  with open(f"{hd_teste}/arquivo6.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  arquivos_teste.append("arquivo6.txt")
+  datas_hd = datas_dos_arquivos(hd_teste, arquivos_teste)
+  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+
+  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True, True, True]
+  assert datas_dos_arquivos(pendrive_teste, arquivos_teste)[4:6] == datas_hd[4:6]
+
+
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
     shutil.rmtree(pendrive_teste)
