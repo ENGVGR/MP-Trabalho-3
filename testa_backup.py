@@ -412,7 +412,7 @@ def teste_executar():
   executar( False, hd_teste, pendrive_teste, arquivos_teste)
   data_hd_depois = datas_dos_arquivos(hd_teste, arquivos_teste)
   data_pendrive_depois = datas_dos_arquivos(pendrive_teste, arquivos_teste)
-  assert compara_datas(data_hd_depois, data_pendrive_antes)[0] == "As datas são iguais"
+  assert compara_datas(data_hd_depois, data_hd_antes)[0] == "Primeiro é mais recente"
   assert compara_datas(data_pendrive_antes, data_pendrive_depois)[0] == "As datas são iguais"
   assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True]
 
