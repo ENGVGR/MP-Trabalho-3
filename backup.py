@@ -129,3 +129,15 @@ def executar(backup, hd, pendrive, arquivos):
         if compara_datas(data_arquivo_hd, data_arquivo_pendrive)[0] == "Segundo é mais recente":
           print("Erro: Arquivos do pendrive já são os mais recentes")
           return "Erro: Arquivos do pendrive já são os mais recentes"
+  else:
+    arquivos_presentes_hd = arquivos_presentes(hd, arquivos)
+    arquivos_presentes_pendrive = arquivos_presentes(pendrive, arquivos)
+
+    for i in range(len(arquivos)):
+      arquivo = arquivos[i]
+      arquivo_presente_hd = arquivos_presentes_hd[i]
+      arquivo_presente_pendrive = arquivos_presentes_pendrive[i]
+
+      if arquivo_presente_hd and not arquivo_presente_pendrive:
+        print("Erro: Não foram encontrados os arquivos no pendrive")
+        return "Erro: Não foram encontrados os arquivos no pendrive"
