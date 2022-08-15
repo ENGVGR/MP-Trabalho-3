@@ -159,3 +159,5 @@ def executar(backup, hd, pendrive, arquivos):
       if not arquivo_presente_hd and not arquivo_presente_pendrive:
         print("Erro: Arquivo não existe no hd e pendrive")
         return "Erro: Arquivo não existe no hd e pendrive"
+      if not arquivo_presente_hd and arquivo_presente_pendrive:
+        transfere_arquivos([arquivo], pendrive, hd)
