@@ -445,7 +445,8 @@ def teste_executar():
 
   arquivos_teste = ["arquivo1.txt"]
 
-  assert executar( True, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Arquivos não existem no hd"
+  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+  assert arquivos_presentes(hd_teste, arquivos_teste) == [False]
 
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
