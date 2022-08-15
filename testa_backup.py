@@ -8,6 +8,7 @@ from backup import arquivos_presentes
 from backup import datas_dos_arquivos
 from backup import compara_datas
 from backup import transfere_arquivos
+from backup import executar
 
 def teste_arquivos_presentes():
   """! Testa se existe uma lista de arquivos x's na pasta y.
@@ -152,3 +153,49 @@ def teste_transfere_arquivos():
     shutil.rmtree(pasta_destino_teste)
   if os.path.exists(pasta_origem_teste):
     shutil.rmtree(pasta_origem_teste)
+
+def teste_executar():
+  pendrive_teste = "./exemplos/pendrive"
+  hd_teste = "./exemplos/hd"
+  arquivos_teste = ["arquivo1.txt", "arquivo2.txt", "arquivo3.txt",
+  "arquivo4.txt"]
+
+  #Exclui as pastas testes (caso exista)
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  if os.path.exists(hd_teste):
+    shutil.rmtree(hd_teste)
+
+  #Cria a pasta de teste
+  os.mkdir(pendrive_teste)
+  os.mkdir(hd_teste)
+
+  with open(f"{hd_teste}/arquivo1.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  with open(f"{hd_teste}/arquivo2.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  with open(f"{hd_teste}/arquivo3.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  with open(f"{hd_teste}/arquivo4.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  #Teste 1 - Não possui o parâmetro Backup
+  assert executar(hd_teste, pendrive_teste, arquivos_teste) == "Impossível - Não contem o parâmetro Backup"
+
+  #Teste 2 - Arquivos estão apenas no hd e é backup
+  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True]
+
+  #Recria a pasta pendrive para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  os.mkdir(pendrive_teste)
+
+  with open(f"{pendrive_teste}/arquivo5.txt", "x", encoding="utf-8") as arq_criado:
+    arq_criado.close()
+
+  executar( True, hd_teste, pendrive_teste, arquivos_teste)
+  assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True]
