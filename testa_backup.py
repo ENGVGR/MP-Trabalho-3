@@ -416,6 +416,20 @@ def teste_executar():
   assert compara_datas(data_pendrive_antes, data_pendrive_depois)[0] == "As datas são iguais"
   assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True]
 
+  #Teste 10 - Arquivos não estão no hd e nem no pendrive
+
+  #Recria as pastas pendrive e hd para novos testes
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  if os.path.exists(hd_teste):
+    shutil.rmtree(hd_teste)
+  os.mkdir(pendrive_teste)
+  os.mkdir(hd_teste)
+
+  arquivos_teste = ["arquivo1.txt"]
+
+  assert executar( True, hd_teste, pendrive_teste, arquivos_teste) == "Erro: Os arquivos não existem no Hd e no pendrive"
+
   #Exclui as pastas testes (caso exista)
   if os.path.exists(pendrive_teste):
     shutil.rmtree(pendrive_teste)
