@@ -199,3 +199,9 @@ def teste_executar():
 
   executar( True, hd_teste, pendrive_teste, arquivos_teste)
   assert arquivos_presentes(pendrive_teste, arquivos_teste) == [True, True, True, True]
+
+  #Exclui as pastas testes (caso exista)
+  if os.path.exists(pendrive_teste):
+    shutil.rmtree(pendrive_teste)
+  if os.path.exists(hd_teste):
+    shutil.rmtree(hd_teste)
