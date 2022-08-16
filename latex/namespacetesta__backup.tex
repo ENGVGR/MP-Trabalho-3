@@ -1,0 +1,110 @@
+\hypertarget{namespacetesta__backup}{}\doxysection{Refência do Namespace testa\+\_\+backup}
+\label{namespacetesta__backup}\index{testa\_backup@{testa\_backup}}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetesta__backup_aaabd3d00b19450f9f03018de2a5183b8}{teste\+\_\+arquivos\+\_\+presentes}} ()
+\begin{DoxyCompactList}\small\item\em Testa se existe uma lista de arquivos no pendrive. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetesta__backup_a1fa07c1dd624a00d2a8261bcace17560}{teste\+\_\+datas\+\_\+dos\+\_\+arquivos}} ()
+\begin{DoxyCompactList}\small\item\em Testa se a função datas\+\_\+dos\+\_\+arquivos retorna a data do arquivo. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetesta__backup_a86b52c5b4848299d51f8588ddde29c5e}{teste\+\_\+compara\+\_\+datas}} ()
+\begin{DoxyCompactList}\small\item\em Testa se a função compara\+\_\+datas retorna qual a data mais recente. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetesta__backup_a5eeda09928bd468234be6a1c34ca53e0}{teste\+\_\+transfere\+\_\+arquivos}} ()
+\begin{DoxyCompactList}\small\item\em Testa se a função transfere\+\_\+arquivos realiza a transferencia de arquivos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetesta__backup_a784bfd0130df9df4b41fc6b0a227698d}{teste\+\_\+executar}} ()
+\begin{DoxyCompactList}\small\item\em Testa a execução do programa. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetesta__backup_a318be065f22a7a5180a1b3b598f4337f}{criar\+\_\+pasta}} (caminho)
+\begin{DoxyCompactList}\small\item\em Função que cria uma nova pasta. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetesta__backup_aca9b23d6ee506046b9d55b0a768c3561}{criar\+\_\+arquivo}} (caminho, nome\+\_\+arquivo)
+\begin{DoxyCompactList}\small\item\em Função que cria um novo arquivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+\begin{DoxyVerb}Funções de teste das funções contidas no arquivo backup.py
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Funções}
+\mbox{\Hypertarget{namespacetesta__backup_aca9b23d6ee506046b9d55b0a768c3561}\label{namespacetesta__backup_aca9b23d6ee506046b9d55b0a768c3561}} 
+\index{testa\_backup@{testa\_backup}!criar\_arquivo@{criar\_arquivo}}
+\index{criar\_arquivo@{criar\_arquivo}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{criar\_arquivo()}{criar\_arquivo()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+criar\+\_\+arquivo (\begin{DoxyParamCaption}\item[{}]{caminho,  }\item[{}]{nome\+\_\+arquivo }\end{DoxyParamCaption})}
+
+
+
+Função que cria um novo arquivo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em caminho} & Caminho para o local onde a pasta será criada. \\
+\hline
+{\em nome\+\_\+arquivo} & Nome do arquivo que será criado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetesta__backup_a318be065f22a7a5180a1b3b598f4337f}\label{namespacetesta__backup_a318be065f22a7a5180a1b3b598f4337f}} 
+\index{testa\_backup@{testa\_backup}!criar\_pasta@{criar\_pasta}}
+\index{criar\_pasta@{criar\_pasta}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{criar\_pasta()}{criar\_pasta()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+criar\+\_\+pasta (\begin{DoxyParamCaption}\item[{}]{caminho }\end{DoxyParamCaption})}
+
+
+
+Função que cria uma nova pasta. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em caminho} & Caminho para o local onde a pasta será criada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetesta__backup_aaabd3d00b19450f9f03018de2a5183b8}\label{namespacetesta__backup_aaabd3d00b19450f9f03018de2a5183b8}} 
+\index{testa\_backup@{testa\_backup}!teste\_arquivos\_presentes@{teste\_arquivos\_presentes}}
+\index{teste\_arquivos\_presentes@{teste\_arquivos\_presentes}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{teste\_arquivos\_presentes()}{teste\_arquivos\_presentes()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+teste\+\_\+arquivos\+\_\+presentes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Testa se existe uma lista de arquivos no pendrive. 
+
+Para isso é criado uma pasta temporária (pendrive) com arquivos temporários. \mbox{\Hypertarget{namespacetesta__backup_a86b52c5b4848299d51f8588ddde29c5e}\label{namespacetesta__backup_a86b52c5b4848299d51f8588ddde29c5e}} 
+\index{testa\_backup@{testa\_backup}!teste\_compara\_datas@{teste\_compara\_datas}}
+\index{teste\_compara\_datas@{teste\_compara\_datas}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{teste\_compara\_datas()}{teste\_compara\_datas()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+teste\+\_\+compara\+\_\+datas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Testa se a função compara\+\_\+datas retorna qual a data mais recente. 
+
+Para isso é utilizado arquivos criados com datas fixas (não sofrerá alterações). \mbox{\Hypertarget{namespacetesta__backup_a1fa07c1dd624a00d2a8261bcace17560}\label{namespacetesta__backup_a1fa07c1dd624a00d2a8261bcace17560}} 
+\index{testa\_backup@{testa\_backup}!teste\_datas\_dos\_arquivos@{teste\_datas\_dos\_arquivos}}
+\index{teste\_datas\_dos\_arquivos@{teste\_datas\_dos\_arquivos}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{teste\_datas\_dos\_arquivos()}{teste\_datas\_dos\_arquivos()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+teste\+\_\+datas\+\_\+dos\+\_\+arquivos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Testa se a função datas\+\_\+dos\+\_\+arquivos retorna a data do arquivo. 
+
+Para isso é utilizado arquivos criados com datas fixas (não sofrerá alterações). \mbox{\Hypertarget{namespacetesta__backup_a784bfd0130df9df4b41fc6b0a227698d}\label{namespacetesta__backup_a784bfd0130df9df4b41fc6b0a227698d}} 
+\index{testa\_backup@{testa\_backup}!teste\_executar@{teste\_executar}}
+\index{teste\_executar@{teste\_executar}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{teste\_executar()}{teste\_executar()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+teste\+\_\+executar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Testa a execução do programa. 
+
+Para isso, é testado cada coluna da tabela de testes fornecida. \mbox{\Hypertarget{namespacetesta__backup_a5eeda09928bd468234be6a1c34ca53e0}\label{namespacetesta__backup_a5eeda09928bd468234be6a1c34ca53e0}} 
+\index{testa\_backup@{testa\_backup}!teste\_transfere\_arquivos@{teste\_transfere\_arquivos}}
+\index{teste\_transfere\_arquivos@{teste\_transfere\_arquivos}!testa\_backup@{testa\_backup}}
+\doxysubsubsection{\texorpdfstring{teste\_transfere\_arquivos()}{teste\_transfere\_arquivos()}}
+{\footnotesize\ttfamily def testa\+\_\+backup.\+teste\+\_\+transfere\+\_\+arquivos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Testa se a função transfere\+\_\+arquivos realiza a transferencia de arquivos. 
+
+Para isso são criadas pastas temporárias (pendrive e hd). 

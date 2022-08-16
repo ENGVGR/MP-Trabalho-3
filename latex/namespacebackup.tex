@@ -1,0 +1,127 @@
+\hypertarget{namespacebackup}{}\doxysection{Refência do Namespace backup}
+\label{namespacebackup}\index{backup@{backup}}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacebackup_a031f9520c4b7603bae6fe5089ada8050}{arquivos\+\_\+presentes}} (pasta, arquivos)
+\begin{DoxyCompactList}\small\item\em Função que verifica se existe uma lista de arquivos na pasta. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacebackup_ab6c9d2592a209805439c63efae3c3203}{datas\+\_\+dos\+\_\+arquivos}} (pasta, arquivos)
+\begin{DoxyCompactList}\small\item\em Função que retorna as datas das últimas modificações dos arquivos. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacebackup_a0a04ff986ce7fa8c7dd9f5d3f51f5500}{compara\+\_\+datas}} (datas1, datas2)
+\begin{DoxyCompactList}\small\item\em Função que compara as datas de duas pastas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacebackup_a975ba38739b4bd68665810d036f252ab}{transfere\+\_\+arquivos}} (arquivos, origem, destino)
+\begin{DoxyCompactList}\small\item\em Função que transfere arquivos entre pastas. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacebackup_a41fc1e9865d80d5f7702922799cb2dc4}{executar}} (backup, hd, pendrive, arquivos)
+\begin{DoxyCompactList}\small\item\em Função que executa o progama de backup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+\begin{DoxyVerb}Funções que realizam o backup de arquivos utilizando arquivos de
+um pendrive e de um hd.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Funções}
+\mbox{\Hypertarget{namespacebackup_a031f9520c4b7603bae6fe5089ada8050}\label{namespacebackup_a031f9520c4b7603bae6fe5089ada8050}} 
+\index{backup@{backup}!arquivos\_presentes@{arquivos\_presentes}}
+\index{arquivos\_presentes@{arquivos\_presentes}!backup@{backup}}
+\doxysubsubsection{\texorpdfstring{arquivos\_presentes()}{arquivos\_presentes()}}
+{\footnotesize\ttfamily def backup.\+arquivos\+\_\+presentes (\begin{DoxyParamCaption}\item[{}]{pasta,  }\item[{}]{arquivos }\end{DoxyParamCaption})}
+
+
+
+Função que verifica se existe uma lista de arquivos na pasta. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em pasta} & String com o caminho para a pasta que será verificada. \\
+\hline
+{\em arquivos} & Lista de strings (arquivos). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna uma lista de booleanos que informa se o arquivo existe (True) ou não (False). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacebackup_a0a04ff986ce7fa8c7dd9f5d3f51f5500}\label{namespacebackup_a0a04ff986ce7fa8c7dd9f5d3f51f5500}} 
+\index{backup@{backup}!compara\_datas@{compara\_datas}}
+\index{compara\_datas@{compara\_datas}!backup@{backup}}
+\doxysubsubsection{\texorpdfstring{compara\_datas()}{compara\_datas()}}
+{\footnotesize\ttfamily def backup.\+compara\+\_\+datas (\begin{DoxyParamCaption}\item[{}]{datas1,  }\item[{}]{datas2 }\end{DoxyParamCaption})}
+
+
+
+Função que compara as datas de duas pastas. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em datas1} & Datas da primeira pasta, no formato \mbox{[}ano,mes,dia,hora,minuto,segundo\mbox{]} (lista de inteiros). \\
+\hline
+{\em datas2} & Datas da segunda pasta, no formato \mbox{[}ano,mes,dia,hora,minuto,segundo\mbox{]} (lista de inteiros). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna uma lista de strings com o resultado das comparações de datas. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacebackup_ab6c9d2592a209805439c63efae3c3203}\label{namespacebackup_ab6c9d2592a209805439c63efae3c3203}} 
+\index{backup@{backup}!datas\_dos\_arquivos@{datas\_dos\_arquivos}}
+\index{datas\_dos\_arquivos@{datas\_dos\_arquivos}!backup@{backup}}
+\doxysubsubsection{\texorpdfstring{datas\_dos\_arquivos()}{datas\_dos\_arquivos()}}
+{\footnotesize\ttfamily def backup.\+datas\+\_\+dos\+\_\+arquivos (\begin{DoxyParamCaption}\item[{}]{pasta,  }\item[{}]{arquivos }\end{DoxyParamCaption})}
+
+
+
+Função que retorna as datas das últimas modificações dos arquivos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em pasta} & String do caminho para a pasta que será verificada. \\
+\hline
+{\em arquivos} & Lista de strings (arquivos). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna uma lista de inteiros com as datas das últimas modificações dos arquivos. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacebackup_a41fc1e9865d80d5f7702922799cb2dc4}\label{namespacebackup_a41fc1e9865d80d5f7702922799cb2dc4}} 
+\index{backup@{backup}!executar@{executar}}
+\index{executar@{executar}!backup@{backup}}
+\doxysubsubsection{\texorpdfstring{executar()}{executar()}}
+{\footnotesize\ttfamily def backup.\+executar (\begin{DoxyParamCaption}\item[{}]{backup,  }\item[{}]{hd,  }\item[{}]{pendrive,  }\item[{}]{arquivos }\end{DoxyParamCaption})}
+
+
+
+Função que executa o progama de backup. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em backup} & Booleano que pode ser True (hd para pendrive) ou False (pendrive para hd) \\
+\hline
+{\em hd} & String que é o caminho para hd \\
+\hline
+{\em pendrive} & String que é o caminho para pendrive \\
+\hline
+{\em arquivos} & Lista de strings (arquivos). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retornar erros, caso existam 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacebackup_a975ba38739b4bd68665810d036f252ab}\label{namespacebackup_a975ba38739b4bd68665810d036f252ab}} 
+\index{backup@{backup}!transfere\_arquivos@{transfere\_arquivos}}
+\index{transfere\_arquivos@{transfere\_arquivos}!backup@{backup}}
+\doxysubsubsection{\texorpdfstring{transfere\_arquivos()}{transfere\_arquivos()}}
+{\footnotesize\ttfamily def backup.\+transfere\+\_\+arquivos (\begin{DoxyParamCaption}\item[{}]{arquivos,  }\item[{}]{origem,  }\item[{}]{destino }\end{DoxyParamCaption})}
+
+
+
+Função que transfere arquivos entre pastas. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em arquivos} & Lista de arquivos. \\
+\hline
+{\em origem} & Local onde serão copiados os arquivos \\
+\hline
+{\em destino} & Local onde serão colocados os arquivos \\
+\hline
+\end{DoxyParams}
