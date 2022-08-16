@@ -173,6 +173,7 @@ def teste_executar():
   assert arquivos_presentes(pendrive, arquivos) == arq_presentes
 
   #Teste 3 - Arquivos estão no hd e pendrive, mas a data do hd é mais recente
+  # e é backup
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -224,6 +225,7 @@ def teste_executar():
   assert arquivos_presentes(pendrive, arquivos[0:2]) == [True, True]
 
   #Teste 4 - Arquivos estão no hd e pendrive e a data dos arquivos são iguais
+  # e é backup
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -238,7 +240,7 @@ def teste_executar():
   assert compara_datas(data_hd, data_pendrive)[0] == iguais
 
   time.sleep(1.1)
-  executar( True, hd, pendrive, [arquivos[0]])
+  executar(True, hd, pendrive, [arquivos[0]])
 
   data_hd = datas_dos_arquivos(hd, [arquivos[0]])
   data_pendrive = datas_dos_arquivos(pendrive, [arquivos[0]])
@@ -248,7 +250,7 @@ def teste_executar():
   assert arquivos_presentes(pendrive, [arquivos[0]]) == [True]
 
   #Teste 5 - Arquivos estão no hd e pendrive, mas a
-  # data do pendrive é mais recente
+  # data do pendrive é mais recente e é backup
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -265,7 +267,7 @@ def teste_executar():
   assert compara_datas(data_hd, data_pendrive_antes)[0] == segundo
 
   erro = "Erro: Arquivos do pendrive já são os mais recentes"
-  assert executar( True, hd, pendrive, [arquivos[0]]) == erro
+  assert executar(True, hd, pendrive, [arquivos[0]]) == erro
 
   #Teste 6 - Arquivos estão apenas no hd e é para transferir do pendrive para hd
 
@@ -281,6 +283,7 @@ def teste_executar():
   assert executar(False, hd, pendrive, arquivos[0:3]) == erro
 
   #Teste 7 - Arquivos estão no hd e pendrive, mas a data do hd é mais recente
+  # e é para transferir do pendrive para hd
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -300,6 +303,7 @@ def teste_executar():
   assert executar( False, hd, pendrive, [arquivos[0]]) == erro
 
   #Teste 8 - Arquivos estão no hd e pendrive e a data dos arquivos são iguais
+  # e é para transferir do pendrive para hd
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -329,6 +333,7 @@ def teste_executar():
 
   #Teste 9 - Arquivos estão no hd e pendrive e
   # a data do pendrive é a mais recente
+  # e é para transferir do pendrive para hd
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -357,6 +362,7 @@ def teste_executar():
   assert arquivos_presentes(pendrive, [arquivos[0]]) == [True]
 
   #Teste 10 - Arquivos não estão no hd e nem no pendrive
+  # e é backup
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
@@ -373,7 +379,7 @@ def teste_executar():
 
   criar_arquivo(pendrive, arquivos[0])
 
-  executar( True, hd, pendrive, [arquivos[0]])
+  executar(True, hd, pendrive, [arquivos[0]])
 
   assert arquivos_presentes(hd, [arquivos[0]]) == [False]
 
@@ -387,6 +393,7 @@ def teste_executar():
   assert executar( False, hd, pendrive, [arquivos[0]]) == erro
 
   #Teste 13 - Arquivos existem apenas no pendrive e é para enviar para o hd
+  # e é para transferir do pendrive para hd
 
   #Recria as pastas pendrive e hd para novos testes
   criar_pasta(pendrive)
